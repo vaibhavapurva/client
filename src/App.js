@@ -1,22 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {BrowserRouter , Route , Link , Switch } from 'react-router-dom';
+import {createStore ,applyMiddleware} from 'redux';
+import Reducer from './Reducer';
+import NotFound from './Components/notFound.js';
+import SignUp from './Components/SignUp';
+import NavBar from './Components/NavBar';
+import Login from './Components/login';
+import Dashboard  from './Components/dashboard.js';
+import PrivateRoute from './Components/PrivateRoutes';
+import PublicRoute from './Components/PublicRoutes';
+import Logout from './Components/logut';
+import History from './Components/history';
+// import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+const store = createStore(Reducer, applyMiddleware(thunk));
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Provider store={store}>
+        <BrowserRouter>
+        <NavBar/>
+          <switch>
+            <PublicRoute exact path="/" component={SignUp}/>
+            <PublicRoute exact path="/login" component={Login}/>
+            <PrivateRoute exact path="/dash" component={Dashboard}/>
+            <PrivateRoute exact path='/Logout' component={Logout}/>
+            <PrivateRoute exact path='/history' component={History}/>
+            {/* <Route component={NotFound} /> */}
+          </switch>
+        </BrowserRouter>
+      </Provider>
       </header>
     </div>
   );
