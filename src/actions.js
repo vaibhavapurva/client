@@ -6,8 +6,8 @@ export const CITY ="CITY";
 export const CITY_RES = "CITY_RES";
 export const CURRENT_lOCA ="CURRENT_LOCA";
 export const CURRENT_RES = "CURRENT_RES";
+export const HISTORY_SET = "HISTORY_SET";
 export const SetSignupUser=(payload)=>{
-    console.log("action" , payload);
     return{
         type:SET_SIGNUP_USER,
         payload:payload
@@ -16,7 +16,6 @@ export const SetSignupUser=(payload)=>{
 }
 
 export const loginUser=(payload)=>{
-    console.log("acion login ", payload);
     return{
         type:LOGIN_USER,
         payload:payload
@@ -24,7 +23,6 @@ export const loginUser=(payload)=>{
 }
 
 export const loginRes=(payload)=>{
-    console.log("action resp",payload);
     return{
         type:LOGIN_RES,
         payload:payload
@@ -40,7 +38,6 @@ export const logout=(payload)=>{
 
 
 export  const city=(payload)=>{
-    console.log(payload)
     return{
         type:CITY,
         payload : payload
@@ -48,7 +45,6 @@ export  const city=(payload)=>{
 }
 
 export const cityResopnse=(payload)=>{
-    console.log("act res ", payload)
     return{
         type:CITY_RES,
         payload:payload
@@ -56,7 +52,6 @@ export const cityResopnse=(payload)=>{
 }
 
 export const currentLoc=(payload)=>{
-    console.log("current",payload)
     return{
         type:CURRENT_lOCA,
         payload:payload
@@ -64,9 +59,15 @@ export const currentLoc=(payload)=>{
 }
 
 export const currentResopnse=(payload)=>{
-    console.log("current data",payload)
     return{
         type:CURRENT_RES,
+        payload:payload,
+    }
+}
+
+export const historySet=(payload)=>{
+    return{
+        type:HISTORY_SET,
         payload:payload,
     }
 }

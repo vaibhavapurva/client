@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { loginUser } from "../actions";
 import {loginUserApi} from "../Service/api.js"
+import Button  from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css'
 const Login =()=>{
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,7 +26,7 @@ const Login =()=>{
                 password:<input name="password" type="password" placeholder="enter password " onChange={(e) => onValueChange(e)} />
                 <br>
                 </br>
-                <button onClick={() => login()} variant="primary" type="submit" >Login </button>
+                <Button onClick={() => login()} variant="primary" type="submit" >Login </Button>
         </form>
         </>
     )
